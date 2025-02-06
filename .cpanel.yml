@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ferry861/public_html
+    - /bin/cp -Rf * $DEPLOYPATH

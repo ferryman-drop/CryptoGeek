@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import "./loginForm.css";
+import { useEffect } from "react";
+import "./signUp.css";
 
-export const LoginForm = ({ isModalOpen, closeModal }) => {
+export const SignUp = ({ isModalOpen, closeModal }) => {
   useEffect(() => {
     if (isModalOpen) {
       document.body.classList.add("modal-open");
@@ -16,7 +16,7 @@ export const LoginForm = ({ isModalOpen, closeModal }) => {
     <div className="backdrop" onClick={closeModal}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="header-modal">
-          <h3 className="modal-title">Sign In</h3>
+          <h3 className="modal-title">Sign Up</h3>
           <button onClick={closeModal} className="close-modal-btn">
             <svg width="28px" height="28px" className="modal-close-icon">
               <use href="/images/icons.svg#icon-x-mark" />
@@ -32,13 +32,18 @@ export const LoginForm = ({ isModalOpen, closeModal }) => {
               id="user-email"
               placeholder="Please enter your email"
             />
+            <input type="password"
+             name="user-passsword"
+            className="modal-input"
+             id="user-password" 
+             placeholder="Please enter your password"/>
             <div className="form-btns">
-              <button className="modal-link">Send login link</button>
+              <button className="modal-link">Sign up</button>
               <button className="google-modal">
                 <svg width="15px" height="15px" className="google-login-icon">
                   <use href="./images/icons.svg#icon-google" />
                 </svg>
-                <p className="google-enter">Or sign in with Google</p>
+                <p className="google-enter">Or sign up with Google</p>
               </button>
             </div>
           </form>

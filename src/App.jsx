@@ -14,10 +14,10 @@ export default function App(){
 
 <Routes>
 
-        <Route path="/" element={<HomePage />} >
-        <Route path='login' element={<SignIn/>}/>
-        <Route path='register' element={<SignUp/>}/>
-        </Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path='/login' element={<SignIn/>}/>
+        <Route path='/register' element={<SignUp/>}/>
+      
         {/* <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} /> */}
          <Route path="*" element={<NotFound />} />

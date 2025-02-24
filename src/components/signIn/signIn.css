@@ -1,0 +1,98 @@
+/* Основний контейнер сторінки */
+body{
+    background-color: #e7c4f7;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e7c4f7; /* Світлий фон для сторінки */
+  }
+  
+  /* Контейнер форми */
+  .login-container {
+    background-color: #FFF;
+    width: 100%;
+    max-width: 500px; /* Ширина форми */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тінь для контейнера */
+  }
+  
+  /* Заголовок форми */
+  .header-modal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-title {
+    color: #4C164E;
+    font-weight: 550;
+    font-size: 28px; /* Збільшений розмір заголовка */
+  }
+  
+  /* Форма */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Збільшений проміжок між елементами */
+  }
+  
+  /* Поля введення */
+  .modal-input {
+    border: 2px solid #8A2BE2;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+    transition: border 250ms ease;
+  }
+  
+  .modal-input:hover {
+    border: 2px solid #DDA0DD;
+  }
+  
+  .modal-input:focus {
+    border: 2px solid #DDA0DD;
+    outline: none;
+  }
+  
+  /* Кнопки */
+  .form-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-link, .google-modal {
+    background-color: #4C164E;
+    color: #FFF;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .modal-link:hover, .google-modal:hover {
+    background-color: #DDA0DD;
+  }
+  
+  /* Повідомлення про помилку */
+  .error-message {
+    color: #ff4d4d;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  /* Іконка Google */
+  .google-login-icon {
+    fill: #FFF;
+  }

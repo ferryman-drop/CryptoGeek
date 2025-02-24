@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import "./signUp.css";
 
-export const SignUp = ({ isModalOpen, closeModal }) => {
+export const SignUp = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.classList.add("modal-open");

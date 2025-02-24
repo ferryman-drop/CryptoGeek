@@ -1,46 +1,72 @@
-import { useEffect } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../services/AuthContext.js";
 import './signIn.css';
+import { BaseURL } from "../../services/ApiIntegration";
 
+export const SignIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Використання контексту
 
-export const SignIn = ({isSignOpen, closeSign})=>{
-    useEffect(() => {
-        if (isSignOpen) {
-          document.body.classList.add("modal-open");
-        } else {
-          document.body.classList.remove("modal-open");
-        }
-      }, [isSignOpen]);
-    
-      if (!isSignOpen) return null;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(`${BaseURL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        login(data.token); // Викликаємо login з контексту
+        alert("Login successful!");
+        navigate("/");
+      } else {
+        setError(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setError("An error occurred. Please try again.");
+    }
+  };
 
-      return(
-        <div className="backdrop" onClick={closeSign}>
-            <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <div className="header-modal">
+  return (
+    <div className="login-page">
+      <div className="login-container">
+        <div className="header-modal">
           <h3 className="modal-title">Sign in</h3>
-          <button onClick={closeSign} className="close-modal-btn">
-            <svg width="28px" height="28px" className="modal-close-icon">
-              <use href="/images/icons.svg#icon-x-mark" />
-            </svg>
-          </button>
         </div>
         <div className="modal-form-cnt">
-          <form className="modal-form">
+          <form className="modal-form" onSubmit={handleSubmit}>
             <input
               type="email"
               name="user-email"
               className="modal-input"
               id="user-email"
               placeholder="Please enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <input type="password"
-             name="user-passsword"
-            className="modal-input"
-             id="user-password" 
-             placeholder="Please enter your password"/>
+            <input
+              type="password"
+              name="user-password"
+              className="modal-input"
+              id="user-password"
+              placeholder="Please enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {error && <p className="error-message">{error}</p>}
             <div className="form-btns">
-              <button className="modal-link">Sign in</button>
-              <button className="google-modal">
+              <button type="submit" className="modal-link">
+                Sign in
+              </button>
+              <button type="button" className="google-modal">
                 <svg width="15px" height="15px" className="google-login-icon">
                   <use href="./images/icons.svg#icon-google" />
                 </svg>
@@ -49,9 +75,7 @@ export const SignIn = ({isSignOpen, closeSign})=>{
             </div>
           </form>
         </div>
-     
-        </div>
-        
-        </div>
-      )
+      </div>
+    </div>
+  );
 };

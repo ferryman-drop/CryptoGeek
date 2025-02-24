@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../services/AuthContext.js";
+import { AuthContext } from "../../services/AuthContext";
 import './signIn.css';
 import { BaseURL } from "../../services/ApiIntegration";
 
@@ -14,6 +14,9 @@ export const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log("Sending request to:", `${BaseURL}/login`); // Логування URL
+      console.log("Request body:", JSON.stringify({ email, password })); // Логування тіла запиту
+  
       const response = await fetch(`${BaseURL}/login`, {
         method: "POST",
         headers: {
@@ -21,7 +24,11 @@ export const SignIn = () => {
         },
         body: JSON.stringify({ email, password }),
       });
+  
+      console.log("Response status:", response.status); // Логування статусу відповіді
       const data = await response.json();
+      console.log("Response data:", data); // Логування даних відповіді
+  
       if (response.ok) {
         login(data.token); // Викликаємо login з контексту
         alert("Login successful!");
@@ -34,7 +41,6 @@ export const SignIn = () => {
       setError("An error occurred. Please try again.");
     }
   };
-
   return (
     <div className="login-page">
       <div className="login-container">

@@ -1,133 +1,141 @@
+/* Загальні стилі для сторінки */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFF;
-    width: 300px;
-    border-radius: 10px;
-    padding: 20px;
-    z-index: 999;
-  }
-  
-  .header-modal{
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    gap: 90px;
-    margin-bottom: 10px;
-  }
-  
-  .modal-title {
-    color: #4C164E;
-    text-align: center;
-    font-weight: 550;
-    font-size: 23px;
-  }
-  
-  .modal-close-icon {
-   fill: #e5e0a6;
-   
-  }
-  
-  .close-modal-btn{
+  position: relative;
+  background-color: #FFF;
+
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  color: #4C164E;
+  font-weight: 550;
+  font-size: 23px;
+  margin: 0;
+}
+
+.close-modal-btn {
   width: 35px;
   height: 30px;
   background-color: #4C164E;
-  transition: background-color 250ms ease;
-  border-radius: 10px;
   border: none;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  }
-  
-  .close-modal-btn:hover {
-    background-color: #DDA0DD;
-  }
-  
-  .modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .modal-input {
-    border: 2px solid #8A2BE2;
-    border-radius: 5px;
-    padding: 10px;
-    transition: border 250ms ease;
-  }
-  
-  .modal-input:hover{
-    border: 2px solid #DDA0DD;
-  }
-  
-  .modal-input:focus{
-    border: 2px solid #DDA0DD;
-  }
-  
-  
-  .form-btns{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .google-modal, .modal-link {
-    background-color: #4C164E;
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .google-modal:hover, .modal-link:hover {
-    background-color: #DDA0DD;
-  }
-  
-  .walet-modal-title{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 8px;
-   border-bottom: 1px solid #DDA0DD;
-   margin-bottom: 10px; 
-  }
-  
-  .wallets-selection{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .metamask-btn, .other-wallets-btn {
-    background-color: #4C164E;
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 5px;
-  
-    transition: background-color 0.3s ease;
-  }
-  
-  .metamask-btn:hover, .other-wallets-btn:hover {
-    background-color: #DDA0DD;
-  }
-  .mobile-menu-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #e5e0a6; 
-    z-index: 1000;
-    padding: 20px;
-  
-   
-    /* overflow-y: auto; */
-  }
-  
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.close-modal-btn:hover {
+  background-color: #DDA0DD;
+}
+
+.modal-close-icon {
+  fill: #e5e0a6;
+  width: 20px;
+  height: 20px;
+}
+
+/* Форма реєстрації */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-input {
+  border: 2px solid #8A2BE2;
+  border-radius: 5px;
+  padding: 10px;
+  transition: border 250ms ease;
+}
+
+.modal-input:hover,
+.modal-input:focus {
+  border: 2px solid #DDA0DD;
+}
+
+/* Кнопки форми */
+.form-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-link,
+.google-modal {
+  background-color: #4C164E;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-link:hover,
+.google-modal:hover {
+  background-color: #DDA0DD;
+}
+
+/* Секція гаманців */
+.wallet-conection-div {
+  margin-top: 20px;
+}
+
+.walet-modal-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 1px solid #DDA0DD;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.wallets-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metamask-btn,
+.other-wallets-btn {
+  background-color: #4C164E;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.metamask-btn:hover,
+.other-wallets-btn:hover {
+  background-color: #DDA0DD;
+}

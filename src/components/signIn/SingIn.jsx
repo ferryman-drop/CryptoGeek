@@ -1,46 +1,29 @@
-import { useState, useContext } from "react";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../services/AuthContext";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/AuthSlice.js";
 import './signIn.css';
-import { BaseURL } from "../../services/ApiIntegration";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext); // Використання контексту
+  const dispatch = useDispatch();
+  const { isLoading, error } = useSelector((state) => state.auth); // Отримуємо стан з Redux
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      console.log("Sending request to:", `${BaseURL}/login`); // Логування URL
-      console.log("Request body:", JSON.stringify({ email, password })); // Логування тіла запиту
+
   
-      const response = await fetch(`${BaseURL}/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      console.log("Response status:", response.status); // Логування статусу відповіді
-      const data = await response.json();
-      console.log("Response data:", data); // Логування даних відповіді
-  
-      if (response.ok) {
-        login(data.token); // Викликаємо login з контексту
-        alert("Login successful!");
-        navigate("/");
-      } else {
-        setError(data.message || "Login failed");
-      }
-    } catch (err) {
-      console.error("Error:", err);
-      setError("An error occurred. Please try again.");
+    const resultAction = await dispatch(loginUser({ email, password }));
+
+    if (loginUser.fulfilled.match(resultAction)) {
+      alert("Login successful!");
+      navigate("/");
     }
   };
+
   return (
     <div className="login-page">
       <div className="login-container">
@@ -69,8 +52,8 @@ export const SignIn = () => {
             />
             {error && <p className="error-message">{error}</p>}
             <div className="form-btns">
-              <button type="submit" className="modal-link">
-                Sign in
+              <button type="submit" className="modal-link" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Sign in"}
               </button>
               <button type="button" className="google-modal">
                 <svg width="15px" height="15px" className="google-login-icon">

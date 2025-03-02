@@ -1,6 +1,7 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../../services/AuthContext"; // Імпорт контексту
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"; // Імпорт Redux хуків
 import { useNavigate } from "react-router-dom";
+import { clearTokens } from "../../redux/AuthSlice"; // Імпорт дії для виходу
 import "./header.css";
 import {
   Accordion,
@@ -12,14 +13,17 @@ import {
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isAuthenticated, logout } = useContext(AuthContext); // Використання контексту
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Отримуємо стан авторизації з Redux
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
 
   const handleLogout = () => {
-    logout();
+    dispatch(clearTokens()); // Викликаємо дію для виходу
     navigate("/");
   };
 

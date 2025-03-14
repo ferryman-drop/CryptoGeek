@@ -1,7 +1,4 @@
 /* Основний контейнер сторінки */
-body{
-    background-color: #e7c4f7;
-}
 
 .login-page {
     display: flex;

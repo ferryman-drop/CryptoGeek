@@ -5,12 +5,12 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #e7c4f7; /* Світлий фон для сторінки */
+    background-color: #F8F9FA; /* Світлий фон для сторінки */
   }
   
   /* Контейнер форми */
   .login-container {
-    background-color: #FFF;
+    background-color: #121212;
     width: 100%;
     max-width: 500px; /* Ширина форми */
     border-radius: 10px;
@@ -26,7 +26,7 @@
   }
   
   .modal-title {
-    color: #4C164E;
+    color: #00FF66;
     font-weight: 550;
     font-size: 28px; /* Збільшений розмір заголовка */
   }
@@ -40,7 +40,7 @@
   
   /* Поля введення */
   .modal-input {
-    border: 2px solid #8A2BE2;
+    border: 2px solid #00FF66;
     border-radius: 5px;
     padding: 15px;
     font-size: 16px;
@@ -48,11 +48,11 @@
   }
   
   .modal-input:hover {
-    border: 2px solid #DDA0DD;
+    border: 2px solid #1E1E1E;
   }
   
   .modal-input:focus {
-    border: 2px solid #DDA0DD;
+    border: 2px solid #1E1E1E;
     outline: none;
   }
   
@@ -64,8 +64,8 @@
   }
   
   .modal-link, .google-modal {
-    background-color: #4C164E;
-    color: #FFF;
+    background-color: #02ce54;
+    color: #121212;
     padding: 15px 20px;
     border-radius: 5px;
     font-size: 16px;
@@ -79,7 +79,7 @@
   }
   
   .modal-link:hover, .google-modal:hover {
-    background-color: #DDA0DD;
+    background-color: #00FF66;
   }
   
   /* Повідомлення про помилку */

@@ -3,12 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #e5e0a6;
+  background-color: #121212;
   padding: 10px;
 }
 
 .header-logo {
-  background: linear-gradient(to right, blueviolet, #DDA0DD);
+  background: linear-gradient(to right, #00FF66, #bbfad4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
@@ -22,17 +22,18 @@
 .select-language {
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #DDA0DD;
-  background-color: #e6deee;
+  border: 1px solid #00FF66;
+  background-color: #1E1E1E;
   font-size: 16px;
+  color: #F8F9FA;
   cursor: pointer;
 }
 
 .select-language:focus,
 .select-language:hover {
   outline: none;
-  border-color: #DDA0DD;
-  background-color: #e9c5e9;
+  border-color: #00FF66;
+  background-color: #121212;
 }
 
 .menu-button {
@@ -44,7 +45,7 @@
 }
 
 .menu-header-icon {
-  fill: blueviolet;
+  fill: #00FF66;
 }
 
 .sing-in {
@@ -60,7 +61,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FFF;
+  background-color: #1E1E1E;
+  color: #F8F9FA;
   width: 300px;
   border-radius: 10px;
   padding: 20px;
@@ -76,30 +78,32 @@
 }
 
 .modal-title {
-  color: #4C164E;
+  color: #00FF66;
   text-align: center;
   font-weight: 550;
   font-size: 23px;
 }
 
 .modal-close-icon {
-  fill: #e5e0a6;
+  fill: #00FF66;
 }
 
 .close-modal-btn {
   width: 35px;
   height: 30px;
-  background-color: #4C164E;
+  background-color: #121212;
   transition: background-color 250ms ease;
   border-radius: 10px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #00FF66;
 }
 
 .close-modal-btn:hover {
-  background-color: #DDA0DD;
+  background-color: #00FF66;
+  color: #121212;
 }
 
 .modal-form {
@@ -109,18 +113,17 @@
 }
 
 .modal-input {
-  border: 2px solid #8A2BE2;
+  border: 2px solid #00FF66;
   border-radius: 5px;
   padding: 10px;
+  background-color: #1E1E1E;
+  color: #F8F9FA;
   transition: border 250ms ease;
 }
 
-.modal-input:hover {
-  border: 2px solid #DDA0DD;
-}
-
+.modal-input:hover,
 .modal-input:focus {
-  border: 2px solid #DDA0DD;
+  border: 2px solid #00FF66;
 }
 
 .form-btns {
@@ -132,8 +135,8 @@
 
 .google-modal,
 .modal-link {
-  background-color: #4C164E;
-  color: #FFF;
+  background-color: #121212;
+  color: #00FF66;
   padding: 10px 20px;
   border-radius: 5px;
   display: flex;
@@ -141,11 +144,13 @@
   justify-content: center;
   gap: 5px;
   transition: background-color 0.3s ease;
+  border: 1px solid #00FF66;
 }
 
 .google-modal:hover,
 .modal-link:hover {
-  background-color: #DDA0DD;
+  background-color: #00FF66;
+  color: #121212;
 }
 
 .walet-modal-title {
@@ -153,7 +158,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-bottom: 1px solid #DDA0DD;
+  border-bottom: 1px solid #00FF66;
   margin-bottom: 10px;
 }
 
@@ -165,16 +170,18 @@
 
 .metamask-btn,
 .other-wallets-btn {
-  background-color: #4C164E;
-  color: #FFF;
+  background-color: #121212;
+  color: #00FF66;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  border: 1px solid #00FF66;
 }
 
 .metamask-btn:hover,
 .other-wallets-btn:hover {
-  background-color: #DDA0DD;
+  background-color: #00FF66;
+  color: #121212;
 }
 
 .mobile-menu-header {
@@ -183,7 +190,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e5e0a6;
+  background-color: #1E1E1E;
   z-index: 1000;
   padding: 20px;
 }
@@ -205,11 +212,11 @@
 }
 
 .menu-close-icon {
-  fill: #8A2BE2;
+  fill: #00FF66;
 }
 
 .menu-close-icon:hover {
-  fill: #DDA0DD;
+  fill: #00FF66;
 }
 
 .head-menu-mobile {
@@ -217,7 +224,7 @@
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  border: 1px solid #DDA0DD;
+  border: 1px solid #00FF66;
   padding: 20px;
   gap: 25px;
   width: auto;
@@ -225,18 +232,18 @@
 }
 
 .head-menu-mob-item {
-  color: #483D8B;
+  color: #F8F9FA;
   font-size: 18px;
-  font-size: 400;
+  font-weight: 400;
 }
 
 .head-menu-mob-item:hover {
-  color: #8A2BE2;
+  color: #00FF66;
 }
 
 .submenu-mobile-header {
   padding: 10px;
-  border: 1px solid #DDA0DD;
+  border: 1px solid #00FF66;
   border-radius: 5px;
   margin-top: 10px;
   width: auto;
@@ -244,12 +251,12 @@
 
 .submenu-mobile-item {
   margin-bottom: 10px;
-  color: #8A2BE2;
+  color: #00FF66;
 }
 
 .sing-in .sing-btn {
-  background-color: #8A2BE2;
-  color: #FFF;
+  background-color: #00FF66;
+  color: #121212;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -259,11 +266,11 @@
 }
 
 .sing-in .sing-btn:hover {
-  background-color: #D8BFD8;
+  background-color: #00e65c;
 }
 
 body.modal-open {
-  background-color: #F5F3FF;
+  background-color: #121212;
   overflow: hidden;
   pointer-events: none;
 }
@@ -279,19 +286,19 @@ body.modal-open .backdrop {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 255, 102, 0.2);
   z-index: 998;
 }
 
 /* Стилі для мобільних пристроїв */
 @media screen and (max-width: 767px) {
   .sing-in .sing-btn {
-    padding: 9px 13px; /* Зменшуємо padding */
-    font-size: 12px; /* Зменшуємо розмір шрифту */
+    padding: 9px 13px;
+    font-size: 12px;
   }
 
   .header-end {
-    gap: 5px; /* Зменшуємо відстань між кнопками */
+    gap: 5px;
   }
 }
 
@@ -313,14 +320,14 @@ body.modal-open .backdrop {
   }
 
   .header-list-item {
-    color: blueviolet;
+    color: #F8F9FA;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
   }
 
   .header-list-item:hover {
-    color: #DDA0DD;
+    color: #00FF66;
   }
 
   .knowledge-base {
@@ -332,9 +339,9 @@ body.modal-open .backdrop {
     top: 180%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #fcfbd9;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #1E1E1E;
+    border: 1px solid #00FF66;
+    box-shadow: 0px 4px 10px rgba(0, 255, 102, 0.2);
     padding: 15px;
     width: 250px;
     visibility: hidden;
@@ -350,8 +357,9 @@ body.modal-open .backdrop {
 
   .header-menu-item {
     padding: 12px 10px;
-    border-bottom: 1px solid #f5cef8;
+    border-bottom: 1px solid #00FF66;
     transition: background-color 0.2s ease-in-out;
+    color: #F8F9FA;
   }
 
   .header-menu-item:last-child {
@@ -359,7 +367,7 @@ body.modal-open .backdrop {
   }
 
   .header-menu-item:hover {
-    background-color: #fcfbd9;
+    background-color: #121212;
   }
 
   .header-menu-div {
@@ -371,16 +379,16 @@ body.modal-open .backdrop {
   .hover-menu-title {
     font-size: 16px;
     font-weight: bold;
-    color: #483D8B;
+    color: #00FF66;
     margin-bottom: 5px;
   }
 
   .hover-menu-p {
     font-size: 14px;
-    color: #666;
+    color: #F8F9FA;
   }
 
   .hover-menu-p:hover {
-    color: #666;
+    color: #00FF66;
   }
 }

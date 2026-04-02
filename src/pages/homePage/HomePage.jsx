@@ -1,311 +1,424 @@
 import './HomePage.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
-    <div className="app-layout">
+    <div className="app-shell">
       {/* Top Bar */}
       <header className="top-bar">
         <div className="top-bar-left">
           <a href="/" className="logo">
-            <span className="logo-mark">D</span>
-            Delio<span className="logo-dot"></span>
+            <svg className="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span className="logo-text">
+              <span className="logo-delio">Delio</span>
+              <span className="logo-life"> Life OS</span>
+            </span>
           </a>
-          <nav>
-            <ul className="nav-list">
-              <li className="nav-item">
-                <a href="/" className="nav-link active">Головна</a>
-              </li>
-              <li className="nav-item">
-                <a href="/health" className="nav-link">Здоров'я</a>
-              </li>
-              <li className="nav-item">
-                <a href="/finance" className="nav-link">Фінанси</a>
-              </li>
-              <li className="nav-item">
-                <a href="/projects" className="nav-link">Проєкти</a>
-              </li>
-            </ul>
-          </nav>
         </div>
-        
-        <div className="top-bar-right">
-          <div className="ai-status ready">
-            <span className="ai-status-dot"></span>
-            <span className="text-tiny">Delio готовий</span>
+
+        <div className="top-bar-center">
+          <div className="omnibar-container">
+            <input 
+              type="text" 
+              className="omnibar" 
+              placeholder="Запитай Delio або додай щось..."
+            />
+            <svg className="omnibar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+            <div className="omnibar-status">
+              <span className="ai-dot thinking"></span>
+            </div>
           </div>
-          <div className="profile-avatar">OK</div>
+        </div>
+
+        <div className="top-bar-right">
+          <button className="profile-btn" aria-label="Profile">
+            <span className="text-body-sm">UK</span>
+          </button>
         </div>
       </header>
 
       {/* Sidebar */}
       <aside className="sidebar">
-        <div className="sidebar-section">
-          <div className="sidebar-label">Life Dashboard</div>
-          <ul className="sidebar-list">
-            <li className="sidebar-item">
-              <a href="/" className="sidebar-link active">
-                <span className="sidebar-icon">🏠</span>
-                <span>Головна</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a href="/health" className="sidebar-link">
-                <span className="sidebar-icon">💚</span>
-                <span>Здоров'я</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a href="/finance" className="sidebar-link">
-                <span className="sidebar-icon">💰</span>
-                <span>Фінанси</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a href="/projects" className="sidebar-link">
-                <span className="sidebar-icon">📁</span>
-                <span>Проєкти</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a href="/relationships" className="sidebar-link">
-                <span className="sidebar-icon">👥</span>
-                <span>Відносини</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <nav className="sidebar-section">
+          <div className="sidebar-section-title">Life Dashboard</div>
+          <a href="/" className="nav-item nav-item-active">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+            <span className="nav-item-label">Home</span>
+          </a>
+          <a href="/health" className="nav-item">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <span className="nav-item-label">Health</span>
+          </a>
+          <a href="/finance" className="nav-item">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <span className="nav-item-label">Finance</span>
+          </a>
+          <a href="/projects" className="nav-item">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <span className="nav-item-label">Projects</span>
+          </a>
+          <a href="/relationships" className="nav-item">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <span className="nav-item-label">Relationships</span>
+          </a>
+          <a href="/learning" className="nav-item">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            <span className="nav-item-label">Learning</span>
+          </a>
+        </nav>
 
         <div className="sidebar-divider"></div>
 
-        <div className="sidebar-section">
-          <div className="sidebar-label">System</div>
-          <ul className="sidebar-list">
-            <li className="sidebar-item">
-              <a href="/settings" className="sidebar-link">
-                <span className="sidebar-icon">⚙️</span>
-                <span>Налаштування</span>
-              </a>
-            </li>
-            <li className="sidebar-item">
-              <a href="/deliodev" className="sidebar-link sidebar-delio-dev">
-                <span className="sidebar-icon">🛠</span>
-                <span>DelioDev</span>
-                <span className="sidebar-badge">
-                  <span className="badge badge-ai">dev</span>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <nav className="sidebar-section">
+          <div className="sidebar-section-title">DelioDev</div>
+          <a href="/dev/memory" className="nav-item nav-item-dev">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+            <span className="nav-item-label">Memory</span>
+          </a>
+          <a href="/dev/actions" className="nav-item nav-item-dev">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+            </svg>
+            <span className="nav-item-label">Actions</span>
+          </a>
+          <a href="/dev/approvals" className="nav-item nav-item-dev">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            <span className="nav-item-label">Approvals</span>
+          </a>
+          <a href="/dev/debug" className="nav-item nav-item-dev">
+            <svg className="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+            <span className="nav-item-label">Debug</span>
+          </a>
+        </nav>
       </aside>
 
       {/* Main Content */}
       <main className="main-content">
-        {/* Hero / Direction Block */}
-        <section className="hero-block">
-          <div className="hero-label">Головний фокус сьогодні</div>
-          <h1 className="hero-title">Завершити презентацію для інвесторів</h1>
-          <p className="hero-description">
-            Це ключова подія тижня. Виділи 2 години на фіналізацію слайдів та підготовку до відповідей на запитання.
-          </p>
-          <div className="hero-actions">
-            <button className="btn btn-primary btn-lg">→ Розпочати роботу</button>
-            <button className="btn btn-secondary btn-lg">Показати план</button>
-          </div>
-        </section>
-
-        {/* State Strip */}
-        <section className="state-strip">
-          <div className="state-item">
-            <div className="state-label">Energy</div>
-            <div className="state-indicator">
-              <div className="dot-indicator">
-                <span className="dot active"></span>
-                <span className="dot active"></span>
-                <span className="dot active"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-              </div>
-              <span className="state-value">72%</span>
-            </div>
-          </div>
+        <div className="dashboard-grid">
           
-          <div className="state-item">
-            <div className="state-label">Focus</div>
-            <div className="state-indicator">
-              <div className="dot-indicator">
-                <span className="dot active"></span>
-                <span className="dot active"></span>
-                <span className="dot active"></span>
-                <span className="dot active"></span>
-                <span className="dot"></span>
-              </div>
-              <span className="state-value">85%</span>
-            </div>
-          </div>
-          
-          <div className="state-item">
-            <div className="state-label">Projects</div>
-            <div className="state-value">3 active</div>
-          </div>
-          
-          <div className="state-item">
-            <div className="state-label">Finance</div>
-            <div className="state-value" style={{ color: 'var(--success)' }}>+12% this month</div>
-          </div>
-        </section>
-
-        {/* Today Block */}
-        <section className="today-block">
-          <div className="today-header">
-            <h2 className="today-title">Сьогодні</h2>
-          </div>
-          
-          <div className="today-main">
-            <div className="today-main-label">🎯 Головне</div>
-            <h3 className="today-main-title">Презентація для інвесторів</h3>
-            <div className="today-main-meta">14:00 • Google Meet</div>
-          </div>
-          
-          <div className="today-secondary">
-            <div className="today-secondary-label">📋 Другорядне</div>
-            <ul className="today-list">
-              <li className="today-item">
-                <span className="dot"></span>
-                <span>Відповісти на email від команди</span>
-              </li>
-              <li className="today-item">
-                <span className="dot"></span>
-                <span>Оновити бюджет проєкту</span>
-              </li>
-              <li className="today-item">
-                <span className="dot"></span>
-                <span>Перевірити календар на наступний тиждень</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="today-next-step">
-            Наступний крок: Відкрити Google Slides
-          </div>
-        </section>
-
-        {/* Quick Add / Omnibar */}
-        <section className="quick-add-block">
-          <div className="omnibar">
-            <input 
-              type="text" 
-              className="omnibar-input"
-              placeholder="✨ Що сталося? Що треба зробити? Delio зрозуміє..."
-            />
-            <div className="omnibar-chips">
-              <button className="omnibar-chip">💡 Fact</button>
-              <button className="omnibar-chip">🎯 Task</button>
-              <button className="omnibar-chip">📝 Note</button>
-              <button className="omnibar-chip">🔗 Link</button>
-              <button className="omnibar-chip">🧠 Idea</button>
-            </div>
-          </div>
-        </section>
-
-        {/* Mentor & Life Signals Grid */}
-        <div className="dashboard-grid dashboard-grid-2">
-          {/* Mentor Card */}
-          <section className="mentor-block">
-            <div className="mentor-header">
-              <div className="mentor-icon">💡</div>
-              <h3 className="mentor-title">Delio Notice</h3>
-            </div>
-            
-            <ul className="mentor-list">
-              <li className="mentor-item">
-                <span className="mentor-item-icon">✓</span>
-                <div className="mentor-item-content">
-                  <div className="mentor-item-label">Що добре</div>
-                  <div className="mentor-item-text">
-                    Ти найпродуктивніший між <strong>9-11 ранку</strong>. Цей час використано ефективно.
-                  </div>
-                </div>
-              </li>
-              
-              <li className="mentor-item">
-                <span className="mentor-item-icon">⚠</span>
-                <div className="mentor-item-content">
-                  <div className="mentor-item-label">Що ризиково</div>
-                  <div className="mentor-item-text">
-                    Цього тижня мало сну (<strong>&lt;7h 4 рази</strong>). Це впливає на фокус.
-                  </div>
-                </div>
-              </li>
-              
-              <li className="mentor-item">
-                <span className="mentor-item-icon">→</span>
-                <div className="mentor-item-content">
-                  <div className="mentor-item-label">Що далі</div>
-                  <div className="mentor-item-text">
-                    Спробуй завершити роботу <strong>до 19:00</strong> сьогодні і відпочинь ввечері.
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          {/* Life Signals */}
-          <section className="life-signals-block">
-            <h3 className="card-title mb-6">Life Signals</h3>
-            
-            <div className="life-signals-grid">
-              <div className="life-signal-item">
-                <div className="life-signal-label">Rhythm</div>
-                <div className="life-signal-dots">
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="life-signal-human">Стабільно</div>
-              </div>
-              
-              <div className="life-signal-item">
-                <div className="life-signal-label">Recovery</div>
-                <div className="life-signal-dots">
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="life-signal-human" style={{ color: 'var(--warning)' }}>Потребує уваги</div>
-              </div>
-              
-              <div className="life-signal-item">
-                <div className="life-signal-label">Load</div>
-                <div className="life-signal-dots">
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="life-signal-human">Висока</div>
-              </div>
-              
-              <div className="life-signal-item">
-                <div className="life-signal-label">Consistency</div>
-                <div className="life-signal-dots">
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot active"></span>
-                  <span className="dot"></span>
-                </div>
-                <div className="life-signal-human">Тримаєш</div>
+          {/* Hero / Direction Block */}
+          <section className="hero-block">
+            <div className="hero-content">
+              <h1 className="hero-title">
+                Фокус на глибокій роботі
+              </h1>
+              <p className="hero-description">
+                Сьогодні ідеальний день для завернення поточних проєктів. 
+                Твоя енергія на піку до обіду — використай це для найскладніших задач.
+              </p>
+              <div className="hero-actions">
+                <button className="btn btn-primary">
+                  Почати роботу
+                </button>
+                <button className="btn btn-secondary">
+                  Переглянути план
+                </button>
               </div>
             </div>
           </section>
+
+          {/* State Strip */}
+          <section className="state-strip">
+            <div className="state-metric">
+              <div className="state-metric-header">
+                <span className="state-metric-label">Energy</span>
+                <div className="state-metric-dots">
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                </div>
+              </div>
+              <span className="state-metric-value">Стабільна</span>
+              <span className="state-metric-status">Ранковий пік</span>
+            </div>
+
+            <div className="state-metric">
+              <div className="state-metric-header">
+                <span className="state-metric-label">Focus</span>
+                <div className="state-metric-dots">
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot"></span>
+                </div>
+              </div>
+              <span className="state-metric-value">Глибокий</span>
+              <span className="state-metric-status">Flow стан</span>
+            </div>
+
+            <div className="state-metric">
+              <div className="state-metric-header">
+                <span className="state-metric-label">Projects</span>
+                <div className="state-metric-dots">
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot warning"></span>
+                </div>
+              </div>
+              <span className="state-metric-value">12 активних</span>
+              <span className="state-metric-status">3 горять</span>
+            </div>
+
+            <div className="state-metric">
+              <div className="state-metric-header">
+                <span className="state-metric-label">Finance</span>
+                <div className="state-metric-dots">
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot active"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                </div>
+              </div>
+              <span className="state-metric-value">На треку</span>
+              <span className="state-metric-status">+18% до цілі</span>
+            </div>
+          </section>
+
+          {/* Today Block */}
+          <section className="today-block">
+            <div className="today-header">
+              <h2 className="today-title">Сьогодні</h2>
+              <button className="btn btn-ghost">
+                Додати задачу
+              </button>
+            </div>
+            <div className="today-list">
+              <div className="today-item today-item-primary">
+                <svg className="today-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polygon points="12,2 15,8.5 22,9.5 17,14.5 18.5,21.5 12,18 5.5,21.5 7,14.5 2,9.5 9,8.5"/>
+                </svg>
+                <div className="today-item-content">
+                  <div className="today-item-title">Завершити дизайн-систему Delio</div>
+                  <div className="today-item-description">Фіналізація кольорів, типографіки та компонентів</div>
+                </div>
+              </div>
+              <div className="today-item">
+                <svg className="today-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+                <div className="today-item-content">
+                  <div className="today-item-title">Огляд фінансового звіту за тиждень</div>
+                  <div className="today-item-description">Перевирити категорії витрат</div>
+                </div>
+              </div>
+              <div className="today-item">
+                <svg className="today-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+                <div className="today-item-content">
+                  <div className="today-item-title">Дзвінок з командою</div>
+                  <div className="today-item-description">Обговорення roadmap на наступний місяць</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Quick Add Block */}
+          <section className="quick-add-block">
+            <h2 className="quick-add-title">Швидке додавання</h2>
+            <p className="quick-add-subtitle">Що відбувається? Delio запам'ятає і структурує.</p>
+            
+            <div className="quick-add-input-wrapper">
+              <div className="omnibar-container">
+                <input 
+                  type="text" 
+                  className="omnibar" 
+                  placeholder="Напиши будь-що природною мовою..."
+                  style={{ height: '80px', minHeight: '80px', paddingTop: '12px' }}
+                />
+                <svg className="omnibar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+              </div>
+            </div>
+
+            <div className="quick-add-chips">
+              <button className="chip">📝 Fact</button>
+              <button className="chip">💡 Idea</button>
+              <button className="chip">✓ Task</button>
+              <button className="chip">📌 Note</button>
+              <button className="chip">👤 Person</button>
+            </div>
+
+            <div className="quick-add-actions">
+              <button className="btn btn-secondary">Скасувати</button>
+              <button className="btn btn-primary">
+                Додати запис
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          {/* Mentor & Life Signals Grid */}
+          <div className="dashboard-grid dashboard-grid-2">
+            
+            {/* Mentor Block */}
+            <section className="mentor-block">
+              <div className="mentor-header">
+                <svg className="mentor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <h2 className="mentor-title">Delio Mentor</h2>
+              </div>
+
+              <div className="mentor-section">
+                <div className="mentor-section-label">Що добре</div>
+                <div className="mentor-list">
+                  <div className="mentor-item mentor-item-good">
+                    <svg className="mentor-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                    <span>Послідовний ранковий ритуал вже 7 днів</span>
+                  </div>
+                  <div className="mentor-item mentor-item-good">
+                    <svg className="mentor-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                    <span>Витрати в межах бюджету цього тижня</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mentor-section">
+                <div className="mentor-section-label">Що ризиково</div>
+                <div className="mentor-list">
+                  <div className="mentor-item mentor-item-risk">
+                    <svg className="mentor-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Низька енергія у вечірній час останні 3 дні</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mentor-section">
+                <div className="mentor-section-label">Що далі</div>
+                <div className="mentor-list">
+                  <div className="mentor-item mentor-item-next">
+                    <svg className="mentor-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span>Оглянути тижневі цілі у п'ятницю</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Life Signals Block */}
+            <section className="life-signals-block">
+              <div className="life-signals-header">
+                <h2 className="life-signals-title">Life Signals</h2>
+                <button className="btn btn-ghost btn-sm">Детальніше</button>
+              </div>
+
+              <div className="life-signals-grid">
+                <div className="signal-item">
+                  <span className="signal-label">Rhythm</span>
+                  <div className="signal-indicator">
+                    <div className="signal-dots">
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                    </div>
+                  </div>
+                  <span className="signal-value">On track</span>
+                </div>
+
+                <div className="signal-item">
+                  <span className="signal-label">Recovery</span>
+                  <div className="signal-indicator">
+                    <div className="signal-dots">
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                    </div>
+                  </div>
+                  <span className="signal-value">Good</span>
+                </div>
+
+                <div className="signal-item">
+                  <span className="signal-label">Load</span>
+                  <div className="signal-indicator">
+                    <div className="signal-dots">
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot active"></span>
+                      <span className="signal-dot partial"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                      <span className="signal-dot"></span>
+                    </div>
+                  </div>
+                  <span className="signal-value">Balanced</span>
+                </div>
+              </div>
+
+              <div className="consistency-row">
+                <span className="signal-label">Consistency</span>
+                <div className="consistency-bar">
+                  <div className="consistency-progress">
+                    <div className="consistency-fill" style={{ width: '80%' }}></div>
+                  </div>
+                  <span className="consistency-label">80% · 7 днів</span>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
         </div>
       </main>
     </div>
   );
 };
+
+export default HomePage;

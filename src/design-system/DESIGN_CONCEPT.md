@@ -1,919 +1,549 @@
-# Delio Life OS — Design System & Visual Concept
+# Delio Life OS — Design Concept
 
-## 🎯 Product Philosophy
+## Design Philosophy
 
-**Delio Life OS** — це не dashboard. Це *private operating layer for life*.
+**Midnight Paper** — dark premium interface з відчуттям "паперу на темному столі"
 
 ### Core Principles
+- **Notion-level calm** — спокій, простір, фокус на контенті
+- **Linear-level precision** — чіткість, акуратність, дисципліна
+- **Arc-level polish** — гладкість, увага до деталей
+- **Apple-level restraint** — нічого зайвого, тільки необхідне
 
-1. **Calm Intelligence** — AI присутній, але тихо. Як system intelligence, а не flashy bot.
-2. **Premium Restraint** — Apple-level restraint, Notion-level calm, Linear-level precision.
-3. **Dark Shell, Light Content** — темна оболонка зі світлою композицією всередині.
-4. **Human Language** — ніякого enterprise analytics speak. Тільки людська мова.
-5. **Visual Discipline** — мінімум шуму, сильна ієрархія, акуратні бордери.
-
----
-
-## 🎨 Design Directions (2 Strong Concepts)
-
-### Direction 1: **"Midnight Paper"** ⭐ RECOMMENDED
-
-**Concept:** Уявіть темний стіл із розкладеними аркушами білого паперу. Контент — це "папір" у темному просторі.
-
-**Key Characteristics:**
-- Background: глибокий темний (`#0D0D0F` → `#121214`)
-- Cards: дуже світлі, майже білі поверхні з мінімальною прозорістю (`rgba(255,255,255,0.03-0.05)`)
-- Borders: тонкі, ледь помітні (`rgba(255,255,255,0.08)`)
-- Typography: світлий текст на темному, але контентні блоки — "острівці світла"
-- Feel: private journal, premium notebook, intimate space
-
-**Why This Works for Life OS:**
-- Створює відчуття особистого простору
-- Контент виділяється як "світло в темряві"
-- Дуже спокійний, медитативний візуал
-- Ідеально для reflection та guidance
-
----
-
-### Direction 2: **"Charcoal & Clay"**
-
-**Concept:** Теплі сірі тони, як камінь і глина. Менш контрастний, більш "м'який" dark mode.
-
-**Key Characteristics:**
-- Background: теплий темно-сірий (`#1A1A1C`)
-- Cards: середні тони сірого з теплим підтоном
-- Accents: приглушені кольори (sage, terracotta, slate)
-- Typography: офф-вайтовий текст (`#E8E8E6`)
-- Feel: architectural, grounded, stable
-
-**Why Consider:**
-- Менш різкий контраст = менше eye strain
-- Більш "земний", human feel
-- Добре для тривалих сесій
-
----
-
-## 🏆 Recommended: **Midnight Paper**
-
-Цей напрям найкраще передає концепцію *private operating system*:
-- Темне оточення = фокус на головному
-- Світлі картки = ясність думок
-- Мінімальний декор = немає відволікань
-- Premium feel = це ВАШ особистий інструмент
-
----
-
-## 📐 Layout Structure
-
-### Global Layout
+### Visual Direction
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  TOP BAR (48px)                                             │
-│  [Delio Logo]  [Navigation]           [AI Status] [Profile] │
-├───────────────┬─────────────────────────────────────────────┤
-│               │                                             │
-│  SIDEBAR      │  MAIN CONTENT AREA                          │
-│  (240px)      │  (max-width: 1200px, centered)              │
-│               │                                             │
-│  • Home       │  ┌─────────────────────────────────────┐   │
-│  • Health     │  │ Hero / Direction                    │   │
-│  • Finance    │  └─────────────────────────────────────┘   │
-│  • Projects   │                                             │
-│  • Relationships│ ┌─────────────────────────────────────┐   │
-│  • Settings   │  │ State Strip                         │   │
-│               │  └─────────────────────────────────────┘   │
-│               │                                             │
-│               │  ┌─────────────────────────────────────┐   │
-│               │  │ Today                               │   │
-│               │  └─────────────────────────────────────┘   │
-│               │                                             │
-│               │  ┌─────────────────────────────────────┐   │
-│               │  │ Quick Add                           │   │
-│               │  └─────────────────────────────────────┘   │
-│               │                                             │
-│               │  ┌──────────────┐ ┌──────────────────────┐ │
-│               │  │ Mentor       │ │ Life Signals         │ │
-│               │  └──────────────┘ └──────────────────────┘ │
-└───────────────┴─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│  Dark Shell (#0A0A0B)                                   │
+│  ┌───────────────────────────────────────────────────┐  │
+│  │  Lighter Content Surface (#141416 → #1C1C1F)      │  │
+│  │                                                   │  │
+│  │  ┌─────────────┐  ┌─────────────┐                │  │
+│  │  │   Card      │  │   Card      │  Border:       │  │
+│  │  │  Surface    │  │  Surface    │  rgba(255,     │  │
+│  │  │  #1C1C1F    │  │  #1C1C1F    │  255,255,0.08) │  │
+│  │  └─────────────┘  └─────────────┘                │  │
+│  │                                                   │  │
+│  │  Typography: White (90%) + Gray (60%)            │  │
+│  └───────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────┘
 ```
+
+**Не** gamer dashboard, **не** cyberpunk, **не** admin panel.
 
 ---
 
-## 🎨 Color System (Midnight Paper)
+## Color System
 
 ### Base Palette
 
-```css
-/* Backgrounds */
---bg-primary: #0D0D0F;        /* Найтемніший, основа */
---bg-secondary: #121214;      /* Secondary surfaces */
---bg-tertiary: #18181B;       /* Elevated surfaces */
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--bg-app` | `#0A0A0B` | Головна поверхня додатку |
+| `--bg-surface` | `#141416` | Secondary surfaces |
+| `--bg-card` | `#1C1C1F` | Cards, panels |
+| `--bg-elevated` | `#242428` | Hover states, elevated elements |
+| `--border-subtle` | `rgba(255,255,255,0.06)` | Міжкарткові бордери |
+| `--border-default` | `rgba(255,255,255,0.10)` | Основні бордери |
+| `--border-strong` | `rgba(255,255,255,0.16)` | Акцентні бордери |
 
-/* Card Surfaces - "Paper in the Dark" */
---card-bg: rgba(255, 255, 255, 0.03);
---card-bg-hover: rgba(255, 255, 255, 0.05);
---card-border: rgba(255, 255, 255, 0.08);
---card-border-hover: rgba(255, 255, 255, 0.12);
+### Text Colors
 
-/* Text */
---text-primary: #FAFAFA;      /* Headings, primary info */
---text-secondary: #A1A1AA;    /* Body text */
---text-tertiary: #71717A;     /* Meta, timestamps */
---text-inverse: #0D0D0F;      /* Text on light surfaces */
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--text-primary` | `rgba(255,255,255,0.92)` | Заголовки, головний текст |
+| `--text-secondary` | `rgba(255,255,255,0.60)` | Secondary text, labels |
+| `--text-tertiary` | `rgba(255,255,255,0.38)` | Hints, placeholders |
+| `--text-inverse` | `#0A0A0B` | Text on light backgrounds |
 
-/* Accents */
---accent-primary: #FFFFFF;    /* Primary actions */
---accent-secondary: #52525B;  /* Secondary actions */
+### Accent Colors
 
-/* Semantic Colors (Muted, Premium) */
---success: #22C55E;           /* Good, growth */
---warning: #F59E0B;           /* Attention, caution */
---danger: #EF4444;            /* Risk, urgent */
---info: #3B82F6;              /* Information */
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--accent-primary` | `#FFFFFF` | Primary actions, focus |
+| `--accent-muted` | `rgba(255,255,255,0.12)` | Muted accents |
+| `--focus-ring` | `rgba(255,255,255,0.24)` | Focus states |
 
-/* AI Presence */
---ai-glow: rgba(99, 102, 241, 0.15);  /* Subtle AI indicator */
---ai-active: #6366F1;                 /* Indigo, active state */
---ai-thinking: rgba(99, 102, 241, 0.5);
-```
+### Semantic Colors (Muted for Dark)
 
-### Gradient Usage (Minimal)
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--success-bg` | `rgba(34,197,94,0.12)` | Success backgrounds |
+| `--success-text` | `#4ADE80` | Success text |
+| `--warning-bg` | `rgba(234,179,8,0.12)` | Warning backgrounds |
+| `--warning-text` | `#FACC15` | Warning text |
+| `--danger-bg` | `rgba(239,68,68,0.12)` | Danger backgrounds |
+| `--danger-text` | `#F87171` | Danger text |
+| `--info-bg` | `rgba(59,130,246,0.12)` | Info backgrounds |
+| `--info-text` | `#60A5FA` | Info text |
 
-```css
-/* Only for AI states and key highlights */
---gradient-ai: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(168,85,247,0.05) 100%);
---gradient-card: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-```
+### AI Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ai-glow` | `rgba(139,92,246,0.15)` | AI element glow |
+| `--ai-accent` | `#A78BFA` | AI accent color |
+| `--ai-pulse` | `rgba(167,139,250,0.4)` | AI pulse animation |
 
 ---
 
-## 🔤 Typography System
+## Typography
 
-### Font Family
-
-**Primary:** `Inter` або `SF Pro Display` (system fonts for performance)
-**Alternative:** `Geist Sans` (Vercel's font, very clean)
-
+### Font Stack
 ```css
---font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
---font-mono: 'JetBrains Mono', 'Fira Code', monospace; /* For technical data only */
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ```
 
 ### Type Scale
 
-```css
-/* Display - Hero sections */
---text-display: 48px / 56px;   /* 48px size, 56px line-height */
---text-display-weight: 600;
-
-/* H1 - Page titles */
---text-h1: 32px / 40px;
---text-h1-weight: 600;
-
-/* H2 - Section headers */
---text-h2: 24px / 32px;
---text-h2-weight: 600;
-
-/* H3 - Card titles */
---text-h3: 18px / 28px;
---text-h3-weight: 600;
-
-/* Body Large - Important content */
---text-body-lg: 16px / 24px;
---text-body-lg-weight: 400;
-
-/* Body - Default */
---text-body: 15px / 22px;
---text-body-weight: 400;
-
-/* Small - Meta, captions */
---text-small: 13px / 20px;
---text-small-weight: 400;
-
-/* Tiny - Labels, timestamps */
---text-tiny: 12px / 18px;
---text-tiny-weight: 500;
-```
-
-### Typography Principles
-
-1. **High Contrast for Headings** — `--text-primary` на темному фоні
-2. **Softer Contrast for Body** — `--text-secondary` для довгого читання
-3. **Generous Line Height** — 1.5–1.6 для body text
-4. **Tight Tracking for Headings** — `-0.02em` для display/h1
-5. **Normal Tracking for Body** — читабельність понад усе
+| Style | Size | Weight | Line Height | Letter Spacing | Usage |
+|-------|------|--------|-------------|----------------|-------|
+| `display` | 32px / 2rem | 600 | 1.2 | -0.02em | Hero headings |
+| `h1` | 24px / 1.5rem | 600 | 1.25 | -0.01em | Page titles |
+| `h2` | 20px / 1.25rem | 600 | 1.3 | -0.01em | Section titles |
+| `h3` | 18px / 1.125rem | 600 | 1.4 | 0 | Card titles |
+| `body-lg` | 16px / 1rem | 400 | 1.5 | 0 | Body text large |
+| `body` | 15px / 0.9375rem | 400 | 1.5 | 0 | Body text |
+| `body-sm` | 14px / 0.875rem | 400 | 1.5 | 0.01em | Small body |
+| `caption` | 13px / 0.8125rem | 400 | 1.4 | 0.02em | Captions |
+| `label` | 12px / 0.75rem | 500 | 1.4 | 0.04em | Labels, badges |
+| `mono` | 13px / 0.8125rem | 400 | 1.5 | 0 | Code, technical |
 
 ---
 
-## 🧩 Component System
+## Spacing System
+
+Base unit: `4px`
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--space-1` | `4px` | Tight spacing |
+| `--space-2` | `8px` | Icon gaps |
+| `--space-3` | `12px` | Component internal |
+| `--space-4` | `16px` | Standard padding |
+| `--space-5` | `20px` | Card padding |
+| `--space-6` | `24px` | Section padding |
+| `--space-8` | `32px` | Large gaps |
+| `--space-10` | `40px` | Block separation |
+| `--space-12` | `48px` | Major sections |
+| `--space-16` | `64px` | Page margins |
+
+---
+
+## Layout Structure
+
+### App Frame
+```
+┌────────────────────────────────────────────────────┐
+│ Top Bar (56px)                                     │
+│ Logo | Navigation | Omnibar | Profile              │
+├──────────────┬─────────────────────────────────────┤
+│ Sidebar      │ Main Content                        │
+│ (240px)      │                                     │
+│              │  ┌─────────────────────────────┐   │
+│ Life         │  │ Hero / Direction            │   │
+│ Dashboard    │  └─────────────────────────────┘   │
+│              │                                     │
+│ • Home       │  ┌─────────────────────────────┐   │
+│ • Health     │  │ State Strip                 │   │
+│ • Finance    │  └─────────────────────────────┘   │
+│ • Projects   │                                     │
+│ • Relationships │ ┌───────────────────────────┐   │
+│ • Learning   │ │ Today                       │   │
+│              │ └───────────────────────────┘   │
+│ ──────────── │                                 │
+│ DelioDev     │  ┌─────────────────────────────┐ │
+│              │  │ Quick Add                   │ │
+│ • Memory     │  └─────────────────────────────┘ │
+│ • Actions    │                                  │
+│ • Approvals  │  ┌─────────────┐ ┌─────────────┐ │
+│ • Debug      │  │ Mentor      │ │ Life Signals│ │
+│              │  └─────────────┘ └─────────────┘ │
+└──────────────┴──────────────────────────────────┘
+```
+
+### Top Bar (56px)
+- Logo left
+- Navigation center (optional)
+- Omnibar with AI indicator
+- Profile right
+
+### Sidebar (240px)
+- Life Dashboard section
+- DelioDev section (visually separated)
+- Clean icons + labels
+
+---
+
+## Component Hierarchy
 
 ### Button System
 
+#### Primary Button
 ```css
-/* Primary Button - Main CTA */
-.btn-primary {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  border: 1px solid transparent;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  background: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
-}
+Background: #FFFFFF
+Text: #0A0A0B
+Border: none
+Height: 40px
+Padding: 0 20px
+Radius: 8px
+Font: 15px, 500
+Hover: rgba(255,255,255,0.9)
+Active: rgba(255,255,255,0.8)
+Focus: 0 0 0 2px rgba(255,255,255,0.24)
+```
 
-/* Secondary Button - Supporting actions */
-.btn-secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--card-border);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-.btn-secondary:hover {
-  border-color: var(--text-secondary);
-  background: var(--card-bg);
-}
+#### Secondary Button
+```css
+Background: rgba(255,255,255,0.08)
+Text: rgba(255,255,255,0.92)
+Border: 1px solid rgba(255,255,255,0.10)
+Height: 40px
+Padding: 0 20px
+Radius: 8px
+Font: 15px, 500
+Hover: rgba(255,255,255,0.12)
+Active: rgba(255,255,255,0.16)
+```
 
-/* Ghost Button - Minimal actions */
-.btn-ghost {
-  background: transparent;
-  color: var(--text-secondary);
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-.btn-ghost:hover {
-  color: var(--text-primary);
-  background: var(--card-bg);
-}
+#### Ghost Button
+```css
+Background: transparent
+Text: rgba(255,255,255,0.72)
+Border: none
+Height: 32px
+Padding: 0 12px
+Radius: 6px
+Font: 14px, 500
+Hover: rgba(255,255,255,0.06)
+```
 
-/* AI Action Button */
-.btn-ai {
-  background: var(--ai-glow);
-  color: var(--ai-active);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-.btn-ai:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: var(--ai-active);
-}
+#### Sizes
+- `sm`: 32px height, 14px font
+- `md`: 40px height, 15px font (default)
+- `lg`: 48px height, 16px font
 
-/* Sizes */
-.btn-sm { padding: 6px 12px; font-size: 13px; }
-.btn-lg { padding: 14px 28px; font-size: 16px; }
+---
+
+### Card System
+
+#### Base Card
+```css
+Background: #1C1C1F
+Border: 1px solid rgba(255,255,255,0.08)
+Radius: 12px
+Padding: 24px
+```
+
+#### Elevated Card
+```css
+Background: #1C1C1F
+Border: 1px solid rgba(255,255,255,0.10)
+Shadow: 0 4px 24px rgba(0,0,0,0.32)
+Radius: 12px
+Padding: 24px
+```
+
+#### Interactive Card
+```css
+Base: same as Base Card
+Hover: border-color rgba(255,255,255,0.16)
+Cursor: pointer
+```
+
+#### Card Variants
+- Default: `#1C1C1F`
+- Subtle: `#18181B`
+- Emphasized: `#242428`
+
+---
+
+### Input System
+
+#### Text Input
+```css
+Background: rgba(255,255,255,0.04)
+Border: 1px solid rgba(255,255,255,0.10)
+Radius: 8px
+Height: 44px
+Padding: 0 14px
+Font: 15px
+Text: rgba(255,255,255,0.92)
+Placeholder: rgba(255,255,255,0.38)
+Focus: border rgba(255,255,255,0.24), background rgba(255,255,255,0.06)
+```
+
+#### Omnibar (Special Input)
+```css
+Background: rgba(255,255,255,0.06)
+Border: 1px solid rgba(255,255,255,0.12)
+Radius: 10px
+Height: 44px
+Padding: 0 14px 0 40px
+Font: 15px
+AI Indicator: left icon with subtle pulse
+Focus: border rgba(139,92,246,0.4), glow effect
 ```
 
 ---
 
-### Card Hierarchy
+## AI Presence Patterns
 
+### 1. Omnibar AI Status
 ```
-Level 1: Surface Cards (State Strip, Quick Add)
-- Minimal borders
-- Very subtle background
-- Focus on content
-
-Level 2: Content Cards (Today, Mentor)
-- Defined borders
-- Clear hierarchy inside
-- Slightly elevated feel
-
-Level 3: Interactive Cards (Life Signals, clickable items)
-- Hover states
-- Active indicators
-- More pronounced elevation
+┌────────────────────────────────────────────┐
+│ ✦ [AI dot] Write or ask anything...       │
+└────────────────────────────────────────────┘
 ```
+- Left icon: search/AI hybrid
+- Dot: animated pulse when processing
+- Glow on focus: purple tint
 
+### 2. AI Status Indicator
 ```css
-/* Level 1 - Surface */
-.card-surface {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px 24px;
-  transition: all 0.2s ease;
-}
-
-/* Level 2 - Content */
-.card-content {
-  background: var(--gradient-card);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 24px;
-  transition: all 0.2s ease;
-}
-.card-content:hover {
-  border-color: var(--card-border-hover);
-  background: var(--card-bg-hover);
-}
-
-/* Level 3 - Interactive */
-.card-interactive {
-  background: var(--gradient-card);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.card-interactive:hover {
-  border-color: var(--card-border-hover);
-  background: var(--card-bg-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-}
-```
-
----
-
-## 🧭 Navigation System
-
-### Top Bar (48px height)
-
-```
-┌────────────────────────────────────────────────────────────┐
-│ [Delio•]  Home  Health  Finance  Projects     [⦿] [👤]    │
-│                     AI Status Indicator                   │
-└────────────────────────────────────────────────────────────┘
-```
-
-**Elements:**
-- **Logo:** `Delio•` (точка = AI alive indicator, пульсує коли active)
-- **Nav Links:** minimal text links, active state = underline
-- **AI Status:** small circle, changes color based on state
-- **Profile:** avatar or initials
-
-```css
-.top-bar {
-  height: 48px;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--card-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-link {
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-.nav-link:hover {
-  color: var(--text-primary);
-  background: var(--card-bg);
-}
-.nav-link.active {
-  color: var(--text-primary);
-}
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent-primary);
-}
-
-.ai-status {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--ai-active);
-  margin-right: 8px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-```
-
-### Sidebar (240px width)
-
-```
-┌─────────────────────┐
-│  🏠 Home            │
-│  💚 Health          │
-│  💰 Finance         │
-│  📁 Projects        │
-│  👥 Relationships   │
-│  ⚙️ Settings        │
-│                     │
-│  ─────────────────  │
-│  🛠 DelioDev        │
-└─────────────────────┘
-```
-
-```css
-.sidebar {
-  width: 240px;
-  background: var(--bg-secondary);
-  border-right: 1px solid var(--card-border);
-  padding: 24px 16px;
-  height: calc(100vh - 48px);
-  position: fixed;
-  left: 0;
-  top: 48px;
-  overflow-y: auto;
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.sidebar-item:hover {
-  background: var(--card-bg);
-  color: var(--text-primary);
-}
-.sidebar-item.active {
-  background: var(--card-bg-hover);
-  color: var(--text-primary);
-}
-.sidebar-item-icon {
-  margin-right: 10px;
-  font-size: 16px;
-}
-
-.sidebar-divider {
-  height: 1px;
-  background: var(--card-border);
-  margin: 20px 0;
-}
-
-.deliodev-link {
-  color: var(--ai-active);
-}
-```
-
----
-
-## 🤖 AI Presence Patterns
-
-### 1. Omnibar (Quick Add + AI)
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  ✨  Write anything... Delio will understand               │
-│                                                            │
-│  [💡 Fact]  [🎯 Task]  [📝 Note]  [🔗 Link]                │
-└────────────────────────────────────────────────────────────┘
-```
-
-```css
-.omnibar {
-  background: var(--gradient-card);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 20px 24px;
-  transition: all 0.2s ease;
-}
-.omnibar:focus-within {
-  border-color: var(--ai-active);
-  box-shadow: 0 0 0 3px var(--ai-glow);
-}
-
-.omnibar-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  font-size: 16px;
-  line-height: 1.5;
-  outline: none;
-}
-.omnibar-input::placeholder {
-  color: var(--text-tertiary);
-}
-
-.omnibar-chips {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.omnibar-chip {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.omnibar-chip:hover {
-  border-color: var(--ai-active);
-  color: var(--ai-active);
-}
-```
-
-### 2. AI Status States
-
-```css
-/* Thinking */
-.ai-thinking {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ai-active);
-  font-size: 13px;
-}
-.ai-thinking::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--ai-active);
-  animation: thinking-pulse 1.5s infinite;
-}
-
-@keyframes thinking-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
-}
-
-/* Working */
-.ai-working {
-  color: var(--warning);
-}
-.ai-working::before {
-  background: var(--warning);
-}
-
-/* Ready/Idle */
-.ai-ready {
-  color: var(--success);
-}
-.ai-ready::before {
-  background: var(--success);
-  animation: none;
-  opacity: 0.7;
-}
+.idle { opacity: 0.5; }
+.thinking { animation: pulse 1.5s infinite; }
+.working { animation: pulse 0.8s infinite; }
+.ready { opacity: 1; box-shadow: 0 0 12px var(--ai-glow); }
 ```
 
 ### 3. Mentor Insights Card
-
 ```
-┌────────────────────────────────────────────────────────────┐
-│  💡 Delio Mentoring                                       │
-│                                                            │
-│  ✓ Що добре: Ти тримаєш ритом сну вже 5 днів             │
-│  ⚠ Що ризиково: Навантаження цієї седмиці +40%           │
-│  → Що далі: Заплануй recovery завтра після обіду         │
-└────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ ✦ Mentor                                  │
+│                                           │
+│ ✓ Good: Consistent morning routine        │
+│ ⚠ Risk: Low energy in evenings            │
+│ → Next: Review weekly goals               │
+└─────────────────────────────────────────────┘
 ```
+- AI icon top-left
+- Subtle purple border accent
+- Clean list format
 
+### 4. Ask Delio Action
 ```css
-.mentor-card {
-  background: var(--gradient-ai);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.mentor-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.mentor-item:last-child {
-  margin-bottom: 0;
-}
-
-.mentor-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.mentor-text {
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.5;
-}
-.mentor-text strong {
-  color: var(--text-primary);
-  font-weight: 600;
-}
+Button with AI icon
+Icon: sparkle or diamond shape
+Color: white with subtle purple glow on hover
 ```
 
-### 4. Ask Delio Actions
-
+### 5. Processing States
 ```css
-.ask-delio-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--ai-glow);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 13px;
-  color: var(--ai-active);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.ask-delio-trigger:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: var(--ai-active);
+.thinking-state {
+  background: linear-gradient(90deg, 
+    rgba(139,92,246,0.08) 0%, 
+    rgba(139,92,246,0.12) 50%, 
+    rgba(139,92,246,0.08) 100%);
+  animation: shimmer 2s infinite;
 }
 ```
 
 ---
 
-## 📊 Life Dashboard: Home Structure
+## Home Dashboard Blocks
 
-### Block-by-Block Breakdown
-
-#### 1. Hero / Direction
-
+### 1. Hero / Direction
 ```
-┌────────────────────────────────────────────────────────────┐
-│                                                            │
-│  Головний фокус сьогодні                                   │
-│  Завершити презентацію для інвесторів                     │
-│                                                            │
-│  [→ Розпочати роботу]     [Показати план]                 │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│                                             │
+│   Головний фокус сьогодні                   │
+│   Короткий guidance від Delio               │
+│                                             │
+│   [Primary CTA]    [Secondary CTA]          │
+│                                             │
+└─────────────────────────────────────────────┘
 ```
+- Full width
+- Minimal decorative elements
+- Strong typography
+- 2 CTAs max
 
-**Design:**
-- Великий заголовок, багато whitespace
-- 1 primary CTA, 1 secondary CTA
-- Можливо легкий AI glow background
+### 2. State Strip
+```
+┌─────────────────────────────────────────────┐
+│ Energy    Focus     Projects   Finance      │
+│ ●●○○○     ●●●○○     12 active  ●●○○○       │
+│ Stable    Deep      3 due      On track     │
+└─────────────────────────────────────────────┘
+```
+- Single row
+- Compact metrics
+- Visual indicators (dots/bars)
+- Human language labels
+
+### 3. Today
+```
+┌─────────────────────────────────────────────┐
+│ Сьогодні                                   │
+│                                             │
+│ ★ Головна дія                              │
+│   Опис дії                                 │
+│                                             │
+│ ○ Другорядна                               │
+│ ○ Наступний крок                           │
+└─────────────────────────────────────────────┘
+```
+- Clear priority hierarchy
+- Star for primary
+- Circles for secondary
+- Minimal decoration
+
+### 4. Quick Add
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│   Що відбувається?                          │
+│   [Large input field]                       │
+│                                             │
+│   [Fact] [Idea] [Task] [Note] [Person]     │
+│                                             │
+│                    [Add Entry →]            │
+└─────────────────────────────────────────────┘
+```
+- Largest input on page
+- Chip buttons for types
+- Single clear action
+- Natural language first
+
+### 5. Mentor
+```
+┌─────────────────────────────────────────────┐
+│ ✦ Delio Mentor                            │
+│                                             │
+│ Що добре                                   │
+│ → Пункт 1                                  │
+│ → Пункт 2                                  │
+│                                             │
+│ Що ризиково                                │
+│ → Пункт 1                                  │
+│                                             │
+│ Що далі                                    │
+│ → Пункт 1                                  │
+└─────────────────────────────────────────────┘
+```
+- AI icon present but subtle
+- Three clear sections
+- Arrow bullets
+- Concise insights
+
+### 6. Life Signals
+```
+┌─────────────────────────────────────────────┐
+│ Life Signals                               │
+│                                             │
+│ Rhythm       Recovery      Load             │
+│ ●●●●○○○      ●●●○○○○       ●●○○○○○         │
+│ On track     Good         Balanced          │
+│                                             │
+│ Consistency                                │
+│ ████████░░ 80%                             │
+│ 7-day streak                               │
+└─────────────────────────────────────────────┘
+```
+- Visual but not complex
+- Human-readable labels
+- Simple progress indicators
+- No enterprise charts
 
 ---
 
-#### 2. State Strip
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  Energy: ●●●○○ 72%    Focus: ●●●●○ 85%                    │
-│  Projects: 3 active   Finance: +12% this month            │
-└────────────────────────────────────────────────────────────┘
-```
-
-**Design:**
-- Один рядок, не окремі картки
-- Minimal dots or bars for metrics
-- Human language, not numbers only
-
----
-
-#### 3. Today
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  Сьогодні                                                  │
-│                                                            │
-│  🎯 ГОЛОВНЕ                                                │
-│  Презентація для інвесторів (14:00)                       │
-│                                                            │
-│  ───────────────────────────────────────────────────────── │
-│                                                            │
-│  📋 ДРУГОРЯДНЕ                                             │
-│  • Відповісти на email від команди                        │
-│  • Оновити бюджет проєкту                                 │
-│                                                            │
-│  → Наступний крок: Відкрити Google Slides                 │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
-```
-
----
-
-#### 4. Quick Add (Omnibar)
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  ✨  Що сталося? Що треба зробити?                         │
-│                                                            │
-│  [💡 Fact]  [🎯 Task]  [📝 Note]  [🔗 Link]  [🧠 Idea]    │
-│                                                            │
-│  [Записати →]                                              │
-└────────────────────────────────────────────────────────────┘
-```
-
-**Design:**
-- Найбільший інтерактивний блок на сторінці
-- Завжди visible, завжди accessible
-- AI-ready styling
-
----
-
-#### 5. Mentor
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  💡 Delio Notice                                           │
-│                                                            │
-│  ✓ Ти найпродуктивніший між 9-11 ранку                   │
-│  ⚠ Цього тижня мало сну (<7h 4 рази)                     │
-│  → Спробуй завершити роботу до 19:00 сьогодні             │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
-```
-
----
-
-#### 6. Life Signals
-
-```
-┌────────────────────────────────────────────────────────────┐
-│  Life Signals                                              │
-│                                                            │
-│  Rhythm       Recovery      Load          Consistency      │
-│  ●●●●○       ●●●○○       ●●○○○        ●●●●○            │
-│  Стабільно    Потребує      Висока       Тримаєш          │
-│               уваги                                        │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
-```
-
-**Design:**
-- 4 колонки в одному row
-- Simple dot visualization
-- Human label under each
-
----
-
-## 🛠 DelioDev: Technical Space (Basic Concept)
+## DelioDev Concept (Basic)
 
 ### Purpose
-Окремий простір для технічної інформації про Delio:
-- Memory status
-- Actions log
-- Approvals queue
-- Routing debug
-- System health
+Technical space for Delio itself — memory, actions, approvals, routing, debug, health.
 
-### Visual Differentiation
+### Visual Difference from Life Dashboard
+- Slightly darker surface (`#161618` vs `#1C1C1F`)
+- More technical typography (mono for IDs, timestamps)
+- More data-dense but still clean
+- Purple accent stronger here
 
+### Key Sections
+```
+┌─────────────────────────────────────────────┐
+│ DelioDev                                   │
+│                                             │
+│ Memory Graph     Recent Actions             │
+│ [Visualization]  [List of actions]          │
+│                                             │
+│ Pending Approvals                           │
+│ ○ Action 1 — Approve/Reject                │
+│ ○ Action 2 — Approve/Reject                │
+│                                             │
+│ System Health                               │
+│ API: ●  Memory: ●  Routing: ●              │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## Motion & Interaction
+
+### Transitions
 ```css
-/* DelioDev uses slightly different styling to signal "technical mode" */
-.deliodev-mode {
-  --card-bg: rgba(99, 102, 241, 0.05);  /* Slight indigo tint */
-  --card-border: rgba(99, 102, 241, 0.15);
-  --text-primary: #E0E7FF;  /* Slightly cooler white */
-}
+Default: all 0.2s cubic-bezier(0.2, 0, 0.2, 1)
+Smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+Quick: all 0.1s cubic-bezier(0.2, 0, 0.2, 1)
 ```
 
-### Basic Structure
+### Hover States
+- Cards: border brightens slightly
+- Buttons: background adjusts 10-15%
+- Inputs: border + slight background change
+
+### Focus States
+- All interactive: 2px focus ring
+- Color: `rgba(255,255,255,0.24)` or AI purple for AI inputs
+
+### Animations
+- AI Pulse: subtle opacity/brightness cycle
+- Shimmer: gradient sweep for loading
+- Fade In: content entrance
+
+---
+
+## Accessibility
+
+- Minimum contrast ratio: 4.5:1 for text
+- Focus indicators always visible
+- No information conveyed by color alone
+- Keyboard navigation supported
+- Reduced motion option respected
+
+---
+
+## Recommended Direction: Midnight Paper
+
+**Why this works for Life OS:**
+
+1. **Calm Authority** — темний фон дає відчуття глибини і стабільності, світлий контент — ясність і фокус
+
+2. **Premium Feel** — не стандартний світлий SaaS, але й не геймерський dark mode
+
+3. **Private Space** — відчувається як особистий простір, а не публічний інструмент
+
+4. **AI Integration** — фіолетові акценти органічні, не кричать "ШТУЧНИЙ ІНТЕЛЕКТ"
+
+5. **Scalable** — працює для простого home і для складних внутрішніх сторінок
+
+6. **Sustainable** — не втомлює очі, можна використовувати щодня
+
+---
+
+## Files Structure
 
 ```
-┌────────────────────────────────────────────────────────────┐
-│  DelioDev — System Status                                  │
-├────────────────────────────────────────────────────────────┤
-│                                                            │
-│  Memory Health: ████████░░ 82%                            │
-│  Actions Pending: 3                                        │
-│  Last Sync: 2 min ago                                     │
-│                                                            │
-│  ┌──────────────────────────────────────────────────────┐ │
-│  │ Recent Actions                                       │ │
-│  │ [12:34] Captured: "Meeting at 14:00"                │ │
-│  │ [12:32] Categorized: Finance → Budget               │ │
-│  │ [12:30] Reminder set: Review weekly stats           │ │
-│  └──────────────────────────────────────────────────────┘ │
-│                                                            │
-│  ┌──────────────────────────────────────────────────────┐ │
-│  │ Approvals Needed                                     │ │
-│  │ ○ Categorize this as "Investment" or "Expense"?     │ │
-│  │ ○ Merge duplicate entries from last week?           │ │
-│  └──────────────────────────────────────────────────────┘ │
-│                                                            │
-└────────────────────────────────────────────────────────────┘
+src/
+├── styles/
+│   ├── variables.css      # Colors, typography, spacing
+│   ├── components.css     # Buttons, cards, inputs, badges
+│   └── layout.css         # Top bar, sidebar, main structure
+├── pages/
+│   └── homePage/
+│       ├── HomePage.jsx   # Main dashboard
+│       └── HomePage.css   # Page-specific styles
+├── components/            # Reusable components
+├── assets/                # Images, icons
+└── index.css              # Main import
 ```
-
-**Key Differences from Life Dashboard:**
-- More technical language OK here
-- More data density acceptable
-- Monospace fonts for timestamps/IDs
-- Debug-style visual elements (but still clean)
-
----
-
-## 📱 Responsive Behavior
-
-### Breakpoints
-
-```css
-/* Mobile */
-@media (max-width: 640px) {
-  .sidebar { display: none; } /* Hamburger menu */
-  .main-content { padding: 16px; }
-  .state-strip { flex-direction: column; gap: 12px; }
-  .life-signals { grid-template-columns: 1fr 1fr; }
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .sidebar { width: 200px; }
-  .main-content { max-width: 900px; }
-}
-
-/* Desktop */
-@media (min-width: 1025px) {
-  .main-content { max-width: 1200px; }
-}
-```
-
----
-
-## 🎯 Implementation Priority
-
-### Phase 1: Foundation
-1. Color system setup
-2. Typography system
-3. Button components
-4. Card components
-5. Top bar + Sidebar
-
-### Phase 2: Home Dashboard
-1. Hero / Direction block
-2. State Strip
-3. Today block
-4. Quick Add (Omnibar)
-5. Mentor card
-6. Life Signals
-
-### Phase 3: AI Patterns
-1. Omnibar with AI integration
-2. AI status indicators
-3. Thinking/working states
-4. Ask Delio triggers
-
-### Phase 4: Inner Pages
-1. Health page template
-2. Finance page template
-3. Projects page template
-
-### Phase 5: DelioDev
-1. Basic layout
-2. Memory view
-3. Actions log
-4. Approvals UI
-
----
-
-## 🧪 Testing Checklist
-
-- [ ] Contrast ratios meet WCAG AA (4.5:1 for text)
-- [ ] All interactive elements have clear hover states
-- [ ] AI states are noticeable but not distracting
-- [ ] Typography scale works across devices
-- [ ] Card hierarchy is clear at a glance
-- [ ] Quick Add is always accessible
-- [ ] Navigation is intuitive
-- [ ] DelioDev feels distinctly different from Life Dashboard
-
----
-
-## 📝 Notes for Development
-
-1. **Start with CSS variables** — define the entire design system in `:root`
-2. **Build atomic components first** — buttons, cards, inputs
-3. **Use composition** — build complex blocks from simple components
-4. **Keep AI styling separate** — create dedicated AI component classes
-5. **Test in dark room** — this is a dark product, test in low light
-6. **Performance matters** — avoid heavy shadows, use borders instead
-
----
-
-**This is your design foundation.** Start with Midnight Paper direction, build the core components, then iterate based on real usage.

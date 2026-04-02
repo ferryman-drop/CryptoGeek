@@ -1,113 +1,184 @@
-/* HomePage specific styles */
-/* Most styles are in the global design system */
+/* HomePage-specific styles */
 
-/* Additional hero block styling */
+/* Additional Hero gradient animation */
 .hero-block {
   position: relative;
   overflow: hidden;
 }
 
-.hero-block::before {
+.hero-block::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--ai-glow) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Chip active state enhancement */
+.chip:hover:not(.chip-active) {
+  transform: translateY(-1px);
+}
+
+.chip-active {
+  box-shadow: 0 2px 8px var(--ai-glow);
+}
+
+/* Today item hover enhancement */
+.today-item {
+  cursor: pointer;
+}
+
+.today-item-primary {
+  cursor: default;
+}
+
+/* Mentor block subtle animation */
+.mentor-block {
+  transition: border-color var(--transition-smooth);
+}
+
+.mentor-block:hover {
+  border-color: var(--ai-accent);
+}
+
+/* Life Signals dot pulse for active state */
+.signal-dot.active {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.signal-dot.active:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.signal-dot.active:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.signal-dot.active:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Omnibar focus glow enhancement */
+.omnibar:focus {
+  box-shadow: 
+    0 0 0 3px var(--ai-glow),
+    0 4px 24px rgba(139, 92, 246, 0.12);
+}
+
+/* Button icon rotation on click */
+.btn-primary:active svg,
+.btn-secondary:active svg {
+  transform: translateX(2px);
+}
+
+/* State metric hover lift */
+.state-metric {
+  transition: transform var(--transition-default), 
+              border-color var(--transition-default);
+}
+
+.state-metric:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+/* Fade in animation for page load */
+.main-content {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Sidebar nav item slide in */
+.nav-item {
+  animation: slideIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.05s; }
+.nav-item:nth-child(2) { animation-delay: 0.1s; }
+.nav-item:nth-child(3) { animation-delay: 0.15s; }
+.nav-item:nth-child(4) { animation-delay: 0.2s; }
+.nav-item:nth-child(5) { animation-delay: 0.25s; }
+.nav-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Quick Add input auto-resize hint */
+.quick-add-input-wrapper .omnibar {
+  font-family: var(--font-sans);
+  line-height: var(--leading-relaxed);
+}
+
+/* Consistency bar gradient shimmer */
+.consistency-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.consistency-fill::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ai-border), transparent);
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-/* State strip responsive adjustments */
+/* Profile button hover glow */
+.profile-btn:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Logo hover effect */
+.logo:hover .logo-icon {
+  transform: rotate(5deg);
+  transition: transform var(--transition-default);
+}
+
+.logo-icon {
+  transition: transform var(--transition-default);
+}
+
+/* Responsive typography adjustments */
 @media (max-width: 768px) {
-  .state-strip {
-    flex-wrap: wrap;
-    gap: var(--space-4);
+  .hero-title {
+    font-size: var(--text-h1);
   }
   
-  .state-item {
-    flex: 1 1 calc(50% - var(--space-2));
-    min-width: 140px;
+  .hero-description {
+    font-size: var(--text-body);
+  }
+  
+  .state-metric-value {
+    font-size: var(--text-h3);
   }
 }
 
-/* Today block enhancements */
-.today-main {
-  position: relative;
-}
-
-.today-main::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--ai-active), transparent);
-}
-
-/* Omnibar focus enhancement */
-.omnibar:focus-within .omnibar-chip {
-  opacity: 0.7;
-}
-
-.omnibar:focus-within .omnibar-chip:hover {
-  opacity: 1;
-}
-
-/* Mentor card icon animation */
-.mentor-icon {
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+/* Print styles */
+@media print {
+  .sidebar,
+  .top-bar,
+  .btn,
+  .chip {
+    display: none !important;
   }
-  50% {
-    transform: translateY(-4px);
+  
+  .main-content {
+    margin-left: 0;
+    padding: 0;
   }
-}
-
-/* Life signals hover effects */
-.life-signal-item {
-  transition: transform var(--transition-fast);
-}
-
-.life-signal-item:hover {
-  transform: translateY(-2px);
-}
-
-/* Dashboard grid gaps */
-.dashboard-grid-2 {
-  gap: var(--space-6);
-}
-
-@media (max-width: 900px) {
-  .dashboard-grid-2 {
-    grid-template-columns: 1fr;
+  
+  .card,
+  .hero-block {
+    break-inside: avoid;
+    border: 1px solid #ccc;
   }
-}
-
-/* Smooth scroll for sidebar */
-.sidebar {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar for main content */
-.main-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.main-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.main-content::-webkit-scrollbar-thumb {
-  background: var(--accent-muted);
-  border-radius: var(--radius-full);
-}
-
-.main-content::-webkit-scrollbar-thumb:hover {
-  background: var(--text-tertiary);
 }
